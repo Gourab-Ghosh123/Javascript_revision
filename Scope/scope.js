@@ -9,6 +9,13 @@ if(true) {
 
     console.log(a , b , c);
 }
-let b = 5;
+/*let b = 5;
 
 console.log(a , b , c);
+
+//console.log(magic);
+
+const person = {
+    name : "Jane"
+}
+console.log(person.name);*/
