@@ -142,3 +142,40 @@ console.log(fruits);
 console.log(fruits.myProperty);
 console.log(fruits[2]);
 console.log(fruits[3]);
+
+
+console.log([] + {});
+console.log("Banana");
+
+
+// TYPE COERCION -- JS AUTOMATICALLY CONVERTS DATA TYPE WHEN NEEDED
+
+//STRING COERCION -- WHEN WE USE + WITH A STRING IT CONVERTS EVERYTHING INTO A STRING
+console.log("Hello" + 42);
+console.log(42 + "Hello");
+console.log(2 + 5 +"5");
+console.log("2" + 3);
+
+// NUMBER COERCION -- WHEN WE USE -,*,/ WITH ANYTHING , IT CONVERTS INTO A NUMBER
+console.log("5" - 2);
+console.log("hello" - 42); //we cannot convert hello to a number
+
+//BOOLEAN COERCION
+
+// falsy values - false, 0, "", null, undefined, NaN, 0n, -0
+// EVERYTHING ELSE IS TRUTHY!
+
+console.log(Boolean("")); // false
+console.log(Boolean(" ")); // true
+console.log(Boolean({})); // true
+console.log(Boolean([])); // true
+console.log(Boolean(null)); //false
+console.log(Boolean(undefined)); // false
+console.log(Boolean(0)); // false
+console.log(Boolean(1)); // true
+console.log(Boolean("Hello")); // true
+
+
+console.log([] + {}); // [object Object]
+console.log({} + []); // [object Object]
+console.log([] + []);
