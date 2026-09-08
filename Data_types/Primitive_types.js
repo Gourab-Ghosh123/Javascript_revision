@@ -220,3 +220,20 @@ console.log(Object.is(NaN , NaN)); //true (Object.is() also doesn't perform type
 
 console.log(0 === -0) //true
 console.log(Object.is(0 , -0)); //false
+
+
+// FOR OBJECTS AND ARRAYS , "==" AND "===" COMPARED BY REFERENCE NOT BY VALUES
+console.log([] == []); //false
+// console.log([] === []); //false
+// console.log({} === {}); //false
+
+
+const a = [];
+const b = a;
+console.log(a == b);
+
+ const value = undefined ?? 0;
+ console.log(value);
+
+ const value2 = undefined || 0;
+ console.log(value2);
