@@ -237,3 +237,57 @@ console.log(a == b);
 
  const value2 = undefined || 0;
  console.log(value2);
+
+
+
+ function solve(item) {
+    let total = 0;
+    for(let i = 0 ; i < item.length ; i++) {
+        total = total + item[i] * 1;
+    }
+    return total;
+ }
+
+console.log(solve([10 , "20" , 30]));
+
+
+function getType(value) {
+    if(value == null) {
+        return null;
+    }
+    if(Array.isArray(value)) {
+        return "array";
+    }
+    return console.log(typeof(value));
+}
+
+getType(3);
+getType("hello");
+console.log(getType(null));
+console.log(getType([10]));
+
+console.log(getType({}));
+console.log(getType(() => {}));
+
+
+
+
+
+function boolean(values) {
+    const result = {
+        truthy : [],
+        falsy : []
+    }
+    
+    for(let i = 0 ; i < values.length ; i++){
+        if(Boolean(values[i]) == true) {
+        result.truthy.push = values[i];
+    }
+    else {
+        result.falsy.at.push = values[i];
+        }
+    }
+    return result;
+}
+
+console.log(boolean)
