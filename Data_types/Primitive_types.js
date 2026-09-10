@@ -271,7 +271,48 @@ console.log(getType(() => {}));
 
 
 
+console.log(1 + "2" + 3);        // ? 123
+console.log(1 + 2 + "3");        // ? 33
+console.log("1" + 2 + 3);        // ? 123
+console.log("1" - 2 + 3);        // ? 2
+console.log("1" - "2" - "3");    // ?-4
+console.log("1" * "2" + "3");    // ? "2" + "3" == 23
+console.log(1 + 2 * "3");        // ? 7
+console.log("5" + 3 - 2);        // ?51
+console.log(0 == "");            // ? true
+console.log(0 == "0");           // ? true
+console.log(false == "");        // ? true
+console.log(false == "0");       // ? true
+console.log(null == undefined);  // ? true
+console.log(NaN === NaN);         // ? false
+console.log(Object.is(NaN,NaN))  // true
+console.log(Object.is(1, -1)); //false
+console.log(1 == -1); //false
+console.log(0 === -0); //true;
+console.log(1 === -0);//false
 
+
+
+
+
+const values = [
+    0,    // false
+    "0",  //true
+    "",   //false
+    " ",  // true
+    [],   // true
+    {},   // true
+    null, //false
+    undefined,  // false
+    NaN,      // false
+    false,   // false
+    true,    // true
+    -1,      //true
+    "false",  //true
+    "null",   // true
+    [1,2],    // true
+    {name: "John"} // true
+];
 
 function boolean(values) {
     const result = {
@@ -279,15 +320,56 @@ function boolean(values) {
         falsy : []
     }
     
-    for(let i = 0 ; i < values.length ; i++){
-        if(Boolean(values[i]) == true) {
-        result.truthy.push = values[i];
-    }
-    else {
-        result.falsy.at.push = values[i];
+    values.forEach(value => {
+        if(Boolean(value)) {
+
+            result.truthy.push(value);
         }
-    }
+        else {
+            result.falsy.push(value);
+        }
+    });
     return result;
 }
 
-console.log(boolean)
+console.log(boolean(values));
+
+console.log(typeof typeof 1);
+
+
+//checking a number is valid or not
+function isValidNumber(value) {
+    return typeof value === "number" && !isNaN(value);
+}
+console.log(isValidNumber(5));
+console.log(isValidNumber(NaN));
+
+
+
+
+
+
+
+//SHALLOW AND DEEP COPY-----
+let personn = {
+    name : "Gourab",
+    name : {
+        city : "Seoul",
+        PIN : 2799 
+    }
+};
+
+const personn1 = {...personn};
+
+
+
+console.log(personn1.adrress.PIN = 2111);
+
+console.log(personn);
+console.log(personn1);
+
+const personn2 = structuredClone(personn);
+
+console.log(personn2.address.city = "sweden");
+console.log(personn);
+console.log(personn2);
