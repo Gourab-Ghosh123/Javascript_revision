@@ -204,3 +204,32 @@ function Personn(name , age) {
 const personn1 = new Personn("Gourab" , 22);
 console.log(personn1);
 personn1.greet();
+
+const bar = function () {
+    return -1;
+};
+console.log(bar());
+console.log(bar);
+
+const baz = () => 1; // it returns even without a return keyword
+console.log(baz());
+
+
+
+const personn2 = {
+    name : "Gourab",
+    
+    regular : function() {
+        console.log(this.name);
+
+        
+    this.arrow = () => {
+        console.log(this.name);
+     }
+     return this;
+    }
+
+}
+
+personn2.arrow();
+personn2.regular().arrow();
