@@ -231,5 +231,58 @@ const personn2 = {
 
 }
 
-personn2.arrow();
-personn2.regular().arrow();
+//personn2.arrow();
+// personn2.regular().arrow();
+
+
+//REST AND SPREAD
+
+function sum1(...numbers) {
+    return numbers.reduce((total , nums) => total + nums, 0);
+}
+console.log(sum1(1 , 2 , 3 , 4, 5));
+
+function oldSum() {
+    let sum  = 0;
+    for(let i = 0 ; i < arguments.length ; i++) {
+        sum += arguments[i];
+    }
+    return sum;
+
+}
+console.log(oldSum(1 , 2 , 3));
+
+const arr1 = [1 , 2 , 3];
+const arr2 = [4 , 5 , 6];
+console.log([...arr1 , ...arr2]);
+
+
+const arr3 = [5 , 6 , 7, 8];
+console.log(...arr3); // spread (array to indivisual) --unpacked
+
+function rest(...args) {  // rest  (indivisual to array) --packed
+    console.log(args);
+}
+rest(1 , 2 , 3);
+
+
+//VAR AS HOISTED / SCOPE CHAIN
+
+var x = 10;
+function outer() {
+    console.log(x);
+
+    var x = 20;
+    console.log(x);
+
+    function inner() {
+        console.log(x);
+        var x = 30;
+        console.log(x);
+    }
+    inner();
+}
+outer();
+
+console.log(b);
+var b = 10;
