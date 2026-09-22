@@ -286,3 +286,34 @@ outer();
 
 console.log(b);
 var b = 10;
+
+//HOISTING 
+
+console.log(namee);
+var namee = "Gourab";
+
+// console.log(sayHi());
+// const sayHi = () => {console.log("Hi")};
+
+// console.log(typeof flowerr);
+// console.log(flowerr);
+// var flowerr;
+
+
+function counterr(){
+    let count = 0;
+
+    return function() {
+        count++;
+        return count;
+    }
+    
+}
+
+const counterr1 = counterr();
+const counterr2 = counterr();
+
+console.log(counterr1());
+console.log(counterr1());
+console.log(counterr2());
+console.log(counterr1());
