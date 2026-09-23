@@ -317,3 +317,39 @@ console.log(counterr1());
 console.log(counterr1());
 console.log(counterr2());
 console.log(counterr1());
+
+function showargs() {
+    console.log(Array.from(arguments));
+}
+showargs( 'a' , 'c' ,[ , 1 , 2] , [2 , 3]);
+
+function showThis(age) {
+    this.age = age;
+    console.log(this);
+}
+const a = new showThis(22);
+
+const objj = {
+    name : "Gourab",
+
+    greet : () => console.log(this.name),
+    greet11 : function() {
+        console.log(this.name);
+        this.innergreet = () => console.log(this.name);
+    }
+}
+console.log(objj);
+objj.greet11();
+console.log(objj);
+
+
+var funcs = [];
+for (var i = 0; i < 3; i++) {  
+    funcs.push(function() {  
+        console.log(i); 
+    });
+}
+
+func[0]();
+func[1]();
+func[2]();
