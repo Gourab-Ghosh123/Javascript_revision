@@ -343,13 +343,36 @@ objj.greet11();
 console.log(objj);
 
 
-var funcs = [];
-for (var i = 0; i < 3; i++) {  
-    funcs.push(function() {  
-        console.log(i); 
-    });
+//
+var nums1 = [];
+for(let i = 0 ; i < 3 ; i++) {
+    nums1.push(function(){
+        console.log(i);
+    })
+}
+nums1[0]();
+nums1[1]();
+nums1[2]();
+
+var nums2 = [];
+for(var i = 0 ; i < 3 ; i++) {
+    nums2.push(function() {
+        console.log(i);
+    })
+}
+nums2[0]();
+nums2[1]();
+nums2[2]();
+
+var nums3 = [];
+for(var i = 0 ; i < 3 ; i++) {
+    (function(j) {
+        nums3.push(function() {
+            console.log(j);
+        })
+    })(i);
 }
 
-func[0]();
-func[1]();
-func[2]();
+nums3[0]();
+nums3[1]();
+nums3[2]();
