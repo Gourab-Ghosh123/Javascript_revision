@@ -376,3 +376,62 @@ for(var i = 0 ; i < 3 ; i++) {
 nums3[0]();
 nums3[1]();
 nums3[2]();
+
+
+// same var name and function name
+
+console.log(typeof foo1); // when hoisted , the function will be prioritized
+var foo1 = "string";
+function foo1() {
+    return "function";
+};
+console.log(foo1); // here , variable assignment is prioritized
+
+
+// for(var i = 1 ; i <= 3 ; i++) {
+//     (function(j) {
+//         setTimeout(function() { //setTimeout calls the function after 1s
+//             console.log(j);
+//         } , 1000);
+//     })(i);
+// }
+
+// for(var i = 1 ; i <= 3 ; i++) {
+//     setTimeout(console.log.bind(i) , 1000); // bind() creates a function and tells it to remember i...
+// }
+
+//
+function maxNum(...nums) {
+    
+    
+    console.log(Math.max(...nums));
+}
+maxNum(1 , 2 , 3  , 4 , 5);
+
+
+//CURRYING------
+
+function add(a) {
+    return function(b) {
+        return function(c) {
+            return a + b + c;
+        }
+    }
+}
+
+console.log(add(2)(3)(5));
+
+function sendAutoEmails(to) {
+    return function(subject) {
+        return function (body) {
+            return ` To : ${to} subject : ${subject} body : ${body}`;
+        }
+    }
+}
+console.log(sendAutoEmails("rashid")("Project Submission Delay")("2 din toh wait karna parega na sir"));
+
+sendAutoEmails1 = (to) => (subject) => (body) => console.log(`To : ${to} subject : ${subject} body : ${body}`);
+
+const step1 = sendAutoEmails1("ggourab@gmail.com");
+const step2 = step1("micro1 interview practise");
+step2("Lets do our best");
