@@ -435,3 +435,45 @@ sendAutoEmails1 = (to) => (subject) => (body) => console.log(`To : ${to} subject
 const step1 = sendAutoEmails1("ggourab@gmail.com");
 const step2 = step1("micro1 interview practise");
 step2("Lets do our best");
+
+
+function multiply(a) {
+    return function(b) {
+        return a*b;
+    }
+};
+const double = multiply(2);
+const triple = multiply(3);
+
+console.log(double(5));
+console.log(triple(10));
+
+
+function add(a) {
+    return function(b) {
+        if(b == undefined) return a;
+        return add(a + b);
+    }
+};
+console.log(add(2)(3)(4)(5)(6)(7)(8)(9)(10)());
+
+
+function createCounter() {
+    let count = 0;
+
+    return {
+        increment() {return ++count;},
+        decrement() {return --count;},
+        reset() {count = 0; return count;},
+        getCount() {return count;}
+    }
+}
+const counterrr = createCounter();
+
+console.log(counterrr.increment());
+console.log(counterrr.increment());
+console.log(counterrr.decrement());
+console.log(counterrr.getCount());
+console.log(counterrr.reset());
+console.log(counterrr.getCount());
+console.log(counterrr.count);
