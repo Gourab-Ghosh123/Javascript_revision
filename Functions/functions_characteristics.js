@@ -499,3 +499,56 @@ const initialize = once(() => {
 console.log(initialize());
 console.log(initialize());
 console.log(initialize());
+
+//Memoization
+function memoize(fn) {
+    const cache = new Map();
+
+    return function(...args) {
+
+        const key = JSON.stringify(args);
+
+        if(cache.has(key)) {
+            console.log("key" , key);
+            return cache.get(key);
+        }
+        const result = fn.apply(this , args);
+        console.log("Computing...");
+        cache.set(key , result);
+        return result;
+    }
+}
+
+const slowSquare = (n) => {
+    console.log("Squaring..." , n);
+    return n * n;
+}
+
+const fastSquare = memoize(slowSquare);
+console.log(fastSquare(5));
+console.log(fastSquare(5));
+console.log(fastSquare(6));
+console.log(fastSquare(5));
+
+console.log(Number("Gourab"));
+console.log("123");
+
+console.log(Number(undefined));
+console.log(Number(null));
+
+// NON STRICT MODE : by default , it uses windows's / globalThis's this when there is no involvement during function call .
+
+function f() {
+    console.log(this);
+    console.log(this === globalThis);
+}
+f();
+
+// STRICT MODE
+
+function fn() {
+"use strict";
+
+    console.log(this);
+}
+fn();
